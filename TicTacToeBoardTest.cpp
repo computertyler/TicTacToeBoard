@@ -14,5 +14,18 @@ class TicTacToeBoardTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor) 
 };
 
+TEST(PracticeTest, oneTog){
+	TicTacToeBoard T;
+    ASSERT_EQ(T.toggleTurn(),'O');	
+}
+TEST(PracticeTest, twoTog){
+	TicTacToeBoard T;
+	T.toggleTurn();
+    ASSERT_EQ(T.toggleTurn(),'X');	
+}
+TEST(PracticeTest, testoneplace){
+	TicTacToeBoard T;
+    ASSERT_EQ(T.placePiece(0,0),'X');	
+}
 
 
