@@ -19,7 +19,15 @@ TicTacToeBoard::TicTacToeBoard()
 **/
 Piece TicTacToeBoard::toggleTurn()
 {
-  return Invalid;
+  if (turn == X)
+  {
+	  turn = O;
+	  return turn;
+  }
+  else{
+	  turn = X;
+	  return turn;
+  }
 }
 
 /**
@@ -27,13 +35,22 @@ Piece TicTacToeBoard::toggleTurn()
  * piece is placed, and toggles which Piece's turn it is. placePiece does 
  * NOT allow to place a piece in a location where there is already a piece.
  * In that case, placePiece just returns what is already at that location. 
- * Out of bounds coordinates return the Piece Invalid value. When the game
+ * Out of bounds coordinates return the Piece Invalid value When the game
  * is over, no more pieces can be placed so attempting to place a piece
  * should neither change the board nor change whose turn it is.
 **/ 
 Piece TicTacToeBoard::placePiece(int row, int column)
 {
-  return Invalid;
+	if ((board[row][column]==O)||(board[row][column]==X))
+	{
+		return board[row][column];
+	}
+	else{
+		board[row][column] = turn;
+		toggleTurn();
+	}
+	
+  
 }
 
 /**
